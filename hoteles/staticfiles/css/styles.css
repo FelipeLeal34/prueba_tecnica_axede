@@ -1,0 +1,17 @@
+header{
+    background-color: #153e54;
+    width : 100% ;
+    height : auto;
+    padding: 20;
+}
+
+#contenedor-hoteles{
+    width: 100vw;
+    height: 100vh;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+}

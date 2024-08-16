@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="{% static 'css/styles.css' %}"> -->
+    <title>HOTELES</title>
+
+    <style>
+        #contenedor-hoteles{
+    width: 100vw;
+    height: 100vh;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+   
+
+}
+
+.card{
+    border : 1px solid black;
+    padding : 20px;
+    text-align: center;
+    cursor: pointer;
+
+}
+    </style>
+</head>
+<body>
+    <div id="contenedor-hoteles">
+        {% for hotel in hoteles %}
+
+        <div class="card">
+            <img src="{% static 'imagenes/{{hotel.sede}}.jpg' %}" alt="">
+            <h1>{{hotel.sede}}</h1>
+            <h3>cant habitaciones : {{hotel.cant_habitaciones}}</h3>
+            <h3>cant personas : {{hotel.cant_personas_sede}}</h3>
+            <h3>tipo habitaciones : 
+                {% for tipo in hotel.tipo_habitaciones.all %}
+                    , {{ tipo.nombre }}
+            {% endfor %}
+            </h3>
+            <a href="{% url hotel.sede %}">VER</a>
+
+
+        </div>
+
+        {% endfor %}
+    </div>
+</body>
+</html>
